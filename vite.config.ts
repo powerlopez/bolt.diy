@@ -19,6 +19,21 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
+    //--
+    server: {
+      host: '0.0.0.0',
+      port: 5173,
+      allowedHosts: [
+        'bolt.tecnl.es',
+        '.tecnl.es',
+        'localhost',
+      ],
+      hmr: {
+        host: process.env.VITE_HMR_HOST || 'localhost',
+        protocol: process.env.VITE_HMR_PROTOCOL || 'ws',
+      },
+    },
+    // FIN DE LA SECCIÓN AÑADIDA
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],
@@ -109,14 +124,4 @@ function chrome129IssuePlugin() {
       });
     },
   };
-}
-
-server: {
-  allowedHosts: [
-    'bolt.tecnl.es',
-    '.tecnl.es'
-  ],
-  hmr: {
-    host: 'bolt.tecnl.es'
-  }
 }
