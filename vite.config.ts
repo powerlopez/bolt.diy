@@ -110,3 +110,13 @@ function chrome129IssuePlugin() {
     },
   };
 }
+
+server: {
+  allowedHosts: [
+    'bolt.tecnl.es',
+    '.tecnl.es'
+  ],
+  hmr: {
+    host: 'bolt.tecnl.es'
+  }
+}
